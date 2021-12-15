@@ -1,0 +1,8 @@
+sha1 1
+print 1
+print 2
+sha1 2
+fjsbkvkjdsfvkjhsd
+sha1 3
+print 3
+print 4
