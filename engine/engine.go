@@ -1,4 +1,4 @@
-package archictecture_lab_4
+package engine
 
 import (
 	"crypto/sha1"

@@ -2,7 +2,7 @@ package main
 
 import (
 	"bufio"
-	"github.com/BusyPeopleAPZ/architecture-lab-4/engine"
+	"github.com/BusyPeopleAPZ/architecture-lab-4/architecture-lab-4"
 	"os"
 	"strings"
 )
