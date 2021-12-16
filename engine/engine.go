@@ -17,23 +17,23 @@ type Handler interface {
 }
 
 type PrintCommand struct {
-	arg string
+	Arg string
 }
 
 func (p *PrintCommand) Execute(loop Handler) {
-	fmt.Println(p.arg)
+	fmt.Println(p.Arg)
 }
 
 type Sha1Command struct {
-	arg string
+	Arg string
 }
 
 func (p *Sha1Command) Execute(loop Handler) {
 	h := sha1.New()
-	h.Write([]byte(p.arg))
+	h.Write([]byte(p.Arg))
 	bs := h.Sum(nil)
 	res := fmt.Sprintf("%x", bs)
-	loop.Post(&PrintCommand{arg: res})
+	loop.Post(&PrintCommand{Arg: res})
 }
 
 type EventLoop struct {

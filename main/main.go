@@ -2,7 +2,7 @@ package main
 
 import (
 	"bufio"
-	"github.com/BusyPeopleAPZ/architecture-lab-4/architecture-lab-4"
+	"github.com/BusyPeopleAPZ/architecture-lab-4/engine"
 	"os"
 	"strings"
 )
@@ -10,7 +10,7 @@ import (
 func main() {
 	inputFile := "file.txt"
 
-	eventLoop := new(EventLoop)
+	eventLoop := new(engine.EventLoop)
 	eventLoop.Start()
 	if input, err := os.Open(inputFile); err == nil {
 		defer input.Close()
@@ -24,13 +24,13 @@ func main() {
 	eventLoop.AwaitFinish()
 }
 
-func parse(str string) Command {
+func parse(str string) engine.Command {
 	s := strings.Split(str, " ")
 	if s[0] == "print" {
-		return &PrintCommand{arg: s[1]}
+		return &engine.PrintCommand{Arg: s[1]}
 	}
 	if s[0] == "sha1" {
-		return &Sha1Command{arg: s[1]}
+		return &engine.Sha1Command{Arg: s[1]}
 	}
-	return &PrintCommand{arg: "Error parsing expression"}
+	return &engine.PrintCommand{Arg: "Error parsing expression"}
 }
